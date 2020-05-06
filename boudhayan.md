@@ -1,7 +1,7 @@
 ---
-title: /peter
 layout: page
-permalink: /peter
+title: /boudhayan
+permalink: /boudhayan
 ---
 
 # Peter principle
