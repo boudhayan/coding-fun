@@ -4,12 +4,31 @@ title: /about
 permalink: /about/
 ---
 
-# jekyll-theme-console
+Hello World!!👋, I am Boudhayan, working as Technical Lead(iOS) in PricewaterhouseCoopers, Bangalore.
 
-A jekyll theme with inspiration from linux consoles for hackers, developers and script kiddies.
-You can find the source code for this theme at [github.com/b2a3e8/jekyll-theme-console](https://github.com/b2a3e8/jekyll-theme-console).
+I love programming in Swift and write about Swift. I have been writing in Medium since last one year, published over 22 articles on some popular publications on Medium like freeCodeCamp, HackerNoon, Better Programming.
+I have started writing for freeCodeCamp's own publication which has 300,000 followers globally.
 
-## What is jekyll?
+I have around 7.6 years of experience in iOS & macOS application development.
+Wrote an article about developer checklist from WWDC 2019 and it became very popular in the developer community.
 
-Jekyll is a simple, blog-aware, static site generator for personal, project, or organization sites. Written in Ruby by Tom Preston-Werner, GitHub's co-founder, it is distributed under an open source license.
-<br />Instead of using databases, Jekyll takes the content, renders Markdown or Textile and Liquid templates, and produces a complete, static website ready to be served by Apache HTTP Server, Nginx or another web server. Jekyll is the engine behind GitHub Pages, a GitHub feature that allows users to host websites based on their GitHub repositories for no additional cost.
+Wrote an article on managing and maintaining different environments in an iOS application, the article made into several iOS newsletters and iOS Dev Weekly.
+Fully automated the build pipeline for continuous integration and continuous delivery to maintain this website.
+
+Wrote automation scripts using Python and shell scripting to get rid of boring work like web crawlers to search and store all the nice articles related to iOS, email automation to send emails automatically in some interval, screen timer for macOS to improve my productivity and so many. 
+Still, they are in private repo, will make those public soon.
+
+Experienced in all aspects of iPhone & iPad application development including designing for all types of screen sizes and orientations.
+
+Well versed in user-friendly design, performance improvement, documenting code, refactoring, continuous integration and deployment, and Unit Testing.
+Complete understanding of Object-Oriented Features (Inheritance, Polymorphism, Abstraction and Encapsulation).
+
+Developed and implemented application designs based on MVVM, MVP, MVC & VIPER.
+Efficient storage of data storage using File System, SQLite, Core Data.
+Worked with QA leads, Graphic Design leads, Project Managers to effectively develop applications.
+
+I know Swift, C, C++, Python, Octave, Matlab, Javascript, Objective C, Shell Scripting, Node.js
+
+Currently, I have started learning Elixir and functional programming. I would say, I am still a very beginner in this but I have high hope to make it possible.
+
+I am working on my newsletter where I will be sending some interesting questions on Swift, Python, System Design, Data Structures and Algorithms.
