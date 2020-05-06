@@ -1,9 +1,9 @@
 ---
-title: /
+title: /home
 layout: home
 permalink: /
 ---
 
 # Welcome to coding with fun
 
-I will be posting one question on advanced swift daily...
+This site is to post programming related problems & answers in swift, python, objective c & shell script.
