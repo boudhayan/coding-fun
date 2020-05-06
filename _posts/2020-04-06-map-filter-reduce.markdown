@@ -5,7 +5,7 @@ date:   2020-04-06 12:32:45 +0100
 categories:
 ---
 
-<br /><br />c swift:
+<br /><br /> swift:
 {% highlight swift %}
 
 //MARK: Custom Implmentation of map, filter, reduce, flatMap
