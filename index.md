@@ -4,6 +4,6 @@ layout: home
 permalink: /
 ---
 
-# Welcome
+# Welcome to coding with fun
 
-Bla bla bla bla. Bla bla bla bla bla bla bla bla.
+I will be posting one question on advanced swift daily...
