@@ -106,6 +106,19 @@ class HelloWorldApp {
 }
 {% endhighlight %}
 
+<br /><br />c swift:
+{% highlight swift %}
+public extension Array {
+    func map3<T>(_ transform: (Element) -> T) -> [T] {
+        reduce([]) { $0 + [transform($1)] }
+    }
+    
+    func filter3(_ isIncluded: (Element) -> Bool) -> [Element] {
+        reduce([]) { isIncluded($1) ? $0 + [$1] : $0 }
+    }
+}
+{% endhighlight %}
+
 
 <br /><br />perl:
 {% highlight perl %}
