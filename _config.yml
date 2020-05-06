@@ -5,13 +5,13 @@ url: "https://boudhayan.com"
 
 header_pages:
   - index.md
-  - peter.md
+  - boudhayan.md
   - about.md
   - contact.md
 
 style: dark
 
-footer: 'follow me on <a href="https://twitter.com/">twitter</a>'
+footer: 'follow me on <a href="https://medium.com/@iboudhayan">medium</a>'
 
 # Build settings
 markdown: kramdown
