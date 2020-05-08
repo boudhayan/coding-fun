@@ -1,10 +1,12 @@
 ---
 layout: page
-title: /Questions
-permalink: /boudhayan
+title: /questions
+permalink: /questions
 ---
 
-# Coming Soon
+# Swift Questions
 
-# Work In Progress
+1. What are the differences between forEach and for loop in swift? advantages of forEach over for loop.
+
+2. Implement map, filter, reduce, flatMap function. Implement map, filter using reduce function.
 
