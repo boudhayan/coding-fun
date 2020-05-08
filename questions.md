@@ -1,6 +1,6 @@
 ---
 layout: page
-title: /boudhayan
+title: /Questions
 permalink: /boudhayan
 ---
 
