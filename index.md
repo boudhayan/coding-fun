@@ -4,11 +4,12 @@ layout: home
 permalink: /
 ---
 
-# Welcome to coding with fun****
-
-Reference-style: 
 ![alt text][logo]
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+[logo]: https://github.com/boudhayan/coding-fun/blob/gh-pages/logo.png "Logo Title Text 2"
 
-This site is to post programming related problems & answers in swift, python, objective c & shell script.
+# Welcome to my personal blog
+
+## ***************************************************************
+					let's have fun with coding
+## ***************************************************************
