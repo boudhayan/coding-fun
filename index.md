@@ -4,7 +4,7 @@ layout: home
 permalink: /
 ---
 
-# Welcome to coding with fun
+# Welcome to coding with fun****
 
 [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Boudhayan"
 
