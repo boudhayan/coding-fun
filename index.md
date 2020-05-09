@@ -10,5 +10,3 @@ permalink: /
 
 ## let's have fun with coding.
 
-We <i class="fas fa-heart" aria-hidden="true" style="color:#c7254e"></i> GitLab!
-
