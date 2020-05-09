@@ -37,3 +37,129 @@ public extension Array where Element: Equatable {
 the return inside closure function does not return to the outer function. It only returns from the closure itself.In this particular case, we’d probably have found the bug, because the compiler generates a warning that the argument to the return statement is unused, but you shouldn’t rely on it finding every such issue.
 
 so in some of the situations, like `addSubview` example `forEach` can be a nicer choice than `for` loop. If you see this type cases then use `for` loop, otherwise use normal `for` loop only.
+
+# 2. Implement map, filter, reduce, flatMap function. Implement map, filter using reduce function.
+
+Below are the hight level impmentations of map, filter, reduce and flatMap-
+
+<br /><br /> swift:
+{% highlight swift %}
+
+//MARK: Custom Implmentation of map, filter, reduce, flatMap
+public extension Array {
+    //map
+    func map2<T>(_ transform: (Element) -> T) -> [T] {
+        var mapped = [T]()
+        mapped.reserveCapacity(count)
+        for element in self {
+            mapped.append(transform(element))
+        }
+        return mapped
+    }
+    
+    //filter
+    func filter2(_ isIncluded: (Element) -> Bool) -> [Element] {
+        var filtered = [Element]()
+        for element in self where isIncluded(element) {
+            filtered.append(element)
+        }
+        return filtered
+    }
+    
+    //reduce
+    func reduce2<Result>(_ initialResult: Result, _ nextPartialResult: (Result, Element) -> Result) -> Result {
+        var reduced = initialResult
+        for element in self {
+            reduced = nextPartialResult(reduced, element)
+        }
+        return reduced
+    }
+    
+    //flatMap
+    func flatMap2<T>(_ transform: (Element) -> [T]) -> [T] {
+        var flatMapped = [T]()
+        for element in self {
+            flatMapped.append(contentsOf: transform(element))
+        }
+        return flatMapped
+    }
+}
+
+//MARK: map, filter using reduce
+public extension Array {
+    func map3<T>(_ transform: (Element) -> T) -> [T] {
+        reduce([]) { $0 + [transform($1)] }
+    }
+    
+    func filter3(_ isIncluded: (Element) -> Bool) -> [Element] {
+        reduce([]) { isIncluded($1) ? $0 + [$1] : $0 }
+    }
+}
+
+{% endhighlight %}
+
+# 3. How array subscripting restricts unauthorized memory access?
+
+Modern operating systems run all applications in protected memory regions using a virtual memory manager. So it is not super easy to simply read or write to a location that exists in REAL space outside the region that have allocated/assigned to your process.
+
+Read operation will alomost never damage another process, however it can indirectly damage a process if you happen to read a KEY value used to encrypt, decrypt or validate a program. So reading out of bounds can have somewhat unexpected affects on your code if you are making decisions based on the data you are reading. 
+
+The only way your could really DAMAGE something by writing to a loaction accessible by a memory address is if that memory address that you are writing to is actually a hardware register (a location that actually is not for data storage but for controlling some piece of hardware) not a RAM location. In all fact, you still wont normally damage something unless you are writing some one time programmable location that is not re-writable (or something of that nature).
+
+Now coming to swift, subscripting by index has been implemented like below-
+
+{% highlight swift %}
+
+@inlinable
+  public subscript(index: Int) -> Element {
+    get {
+      let wasNativeTypeChecked = _hoistableIsNativeTypeChecked()
+      let token = _checkSubscript(
+        index, wasNativeTypeChecked: wasNativeTypeChecked)
+      return _getElement(
+        index, wasNativeTypeChecked: wasNativeTypeChecked,
+        matchingSubscriptCheck: token)
+    }
+    _modify {
+      _makeMutableAndUnique() // makes the array native, too
+      _checkSubscript_native(index)
+      let address = _buffer.subscriptBaseAddress + index
+      yield &address.pointee
+    }
+  }
+{% endhighlight %}
+
+You can see subscript calls `_checkSubscript` method to make sure the index is in range and wasNativeTypeChecked is valid. Now if we see `_checkSubscript` method implementation, basically for read, write operation in array this method checks the given index is valid for subsripting, e.g: `0 <= index < count` otherwise it throws `precondition` failure message `index out of range` and application terminates.
+
+{% highlight swift %}
+/// Check that the given `index` is valid for subscripting, i.e.
+  /// `0 ≤ index < count`.
+  @inlinable
+  @inline(__always)
+  internal func _checkSubscript_native(_ index: Int) {
+    _ = _checkSubscript(index, wasNativeTypeChecked: true)
+  }
+  /// Check that the given `index` is valid for subscripting, i.e.
+  /// `0 ≤ index < count`.
+  @inlinable
+  @_semantics("array.check_subscript")
+  public // @testable
+  func _checkSubscript(
+    _ index: Int, wasNativeTypeChecked: Bool
+  ) -> _DependenceToken {
+#if _runtime(_ObjC)
+    _buffer._checkInoutAndNativeTypeCheckedBounds(
+      index, wasNativeTypeChecked: wasNativeTypeChecked)
+#else
+    _buffer._checkValidSubscript(index)
+#endif
+    return _DependenceToken()
+  }
+  /// Check that the specified `index` is valid, i.e. `0 ≤ index ≤ count`.
+  @inlinable
+  @_semantics("array.check_index")
+  internal func _checkIndex(_ index: Int) {
+    _precondition(index <= endIndex, "Array index is out of range")
+    _precondition(index >= startIndex, "Negative Array index is out of range")
+  }
+{% endhighlight %}
