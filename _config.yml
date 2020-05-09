@@ -9,7 +9,7 @@ header_pages:
   - about.md
   - contact.md
 
-style: dark
+#style: dark
 
 footer: 'follow me on <a href="https://medium.com/@iboudhayan">medium</a>, for more info, visit: <a href="https:boudhayan.com">boudhayan.com</a>'
 
@@ -18,4 +18,5 @@ markdown: kramdown
 remote_theme: b2a3e8/jekyll-theme-console
 
 google_analytics: UA-166030839-1
+listen_for_clients_preferred_style: true # true or false (default)
 
