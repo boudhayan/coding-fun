@@ -4,6 +4,11 @@ title: /questions
 permalink: /questions
 ---
 
+# DS & Algo - Q1 [answer coming soon]
+
+<img src="https://github.com/boudhayan/Trunk-001/blob/master/Screen%20Shot%202020-05-10%20at%201.21.39%20AM.png?raw=true" width="600">
+
+
 # Swift Questions
 
 ## May 2020
