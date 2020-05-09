@@ -5,12 +5,12 @@ date:   2020-05-10 12:32:45 +0100
 categories:
 ---
 
-# 1.What are the differences between forEach and for loop in swift? advantages of forEach over for loop.
+# 1. What are the differences between forEach and for loop in swift? advantages of forEach over for loop.
 
 
 forEach can be more useful if the action you want to perform is a single function call on each element in a collection. Passing a function name to forEach instead of passing closure expression can lead to clearer and more concise code. For example, if you are writing a view controller and want to add an array of subviews to `self.view`, you can just use `views.forEach(view.addSubview)` as function type `(UIView) -> Void` is same as the `closure` type. 
 
-There are some differences between `for` loop and `forEach` loop. If a for loop has a return statement in it, rewriting it with forEach can significantly change the code's behavior. Consider the following example, which is written using a for loop with where condition:
+There are some differences between `for` loop and `forEach` loop. If a for loop has a return statement in it, rewriting it with forEach can significantly change the code's behaviour. Consider the following example, which is written using a for loop with where condition:
 
 {% highlight swift %}
 public extension Array where Element: Equatable {
@@ -34,13 +34,13 @@ public extension Array where Element: Equatable {
 }
 {% endhighlight %}
 
-the return inside closure function does not return to the outer function. It only returns from the closure itself.In this particular case, we’d probably have found the bug, because the compiler generates a warning that the argument to the return statement is unused, but you shouldn’t rely on it finding every such issue.
+the return inside closure function does not return to the outer function. It only returns from the closure itself. In this particular case, we’d probably have found the bug, because the compiler generates a warning that the argument to the return statement is unused, but you shouldn’t rely on it finding every such issue.
 
 so in some of the situations, like `addSubview` example `forEach` can be a nicer choice than `for` loop. If you see this type cases then use `for` loop, otherwise use normal `for` loop only.
 
 # 2. Implement map, filter, reduce, flatMap function. Implement map, filter using reduce function.
 
-Below are the hight level impmentations of map, filter, reduce and flatMap-
+Below are the high-level implementations of map, filter, reduce and flatMap-
 
 <br /><br /> swift:
 {% highlight swift %}
@@ -100,11 +100,11 @@ public extension Array {
 
 # 3. How array subscripting restricts unauthorized memory access?
 
-Modern operating systems run all applications in protected memory regions using a virtual memory manager. So it is not super easy to simply read or write to a location that exists in REAL space outside the region that have allocated/assigned to your process.
+Modern operating systems run all applications in protected memory regions using a virtual memory manager. So it is not super easy to simply read or write to a location that exists in REAL space outside the region that has allocated/assigned to your process.
 
-Read operation will alomost never damage another process, however it can indirectly damage a process if you happen to read a KEY value used to encrypt, decrypt or validate a program. So reading out of bounds can have somewhat unexpected affects on your code if you are making decisions based on the data you are reading. 
+Read operation will rarely damage another process, however it can indirectly damage a process if you happen to read a KEY value used to encrypt, decrypt or validate a program. So reading out of bounds can have somewhat unexpected effects on your code if you are making decisions based on the data you are reading. 
 
-The only way your could really DAMAGE something by writing to a loaction accessible by a memory address is if that memory address that you are writing to is actually a hardware register (a location that actually is not for data storage but for controlling some piece of hardware) not a RAM location. In all fact, you still wont normally damage something unless you are writing some one time programmable location that is not re-writable (or something of that nature).
+The only way you could really DAMAGE something by writing to a location accessible by a memory address is if that memory address that you are writing to is actually a hardware register (a location that is not for data storage but for controlling some piece of hardware) not a RAM location. In all fact, you still won't normally damage something unless you are writing some one-time programmable location that is not re-writable (or something of that nature).
 
 Now coming to swift, subscripting by index has been implemented like below-
 
@@ -129,7 +129,7 @@ Now coming to swift, subscripting by index has been implemented like below-
   }
 {% endhighlight %}
 
-You can see subscript calls `_checkSubscript` method to make sure the index is in range and wasNativeTypeChecked is valid. Now if we see `_checkSubscript` method implementation, basically for read, write operation in array this method checks the given index is valid for subsripting, e.g: `0 <= index < count` otherwise it throws `precondition` failure message `index out of range` and application terminates.
+You can see subscript calls `_checkSubscript` method to make sure the index is in range and wasNativeTypeChecked is valid. Now if we see `_checkSubscript` method implementation, basically for read, write operation in the array this method checks the given index is valid for subscripting, e.g: `0 <= index < count` otherwise it throws `precondition` failure message `index out of range` and the application terminates.
 
 {% highlight swift %}
 /// Check that the given `index` is valid for subscripting, i.e.
@@ -167,8 +167,8 @@ You can see subscript calls `_checkSubscript` method to make sure the index is i
 # 4. What are the differences between error and exception?
 
 
-Exceptions cause applications to crash if you do not handle it properly. It generally occurs when you try to perform an operation on an object incorrectly, such as trying to access an out of bounds index from an array. 
-Unhandled exceptions in your live apps must be avoided at all cost. Customers will not be happy if your app crashes and business can suffer from it. They are warnings to developers that a serious coding issue has occured and needs to be fixed. They are expected to occur in development phase of your app and provide information that will help you to solve the issue before you ship the app.
+Exceptions cause applications to crash if you do not handle it properly. It generally occurs when you try to operate on an object incorrectly, such as trying to access an out of bounds index from an array. 
+Unhandled exceptions in your live apps must be avoided at all cost. Customers will not be happy if your app crashes and business can suffer from it. They are warnings to developers that a serious coding issue has occurred and needs to be fixed. They are expected to occur in the development phase of your app and provide information that will help you to solve the issue before you ship the app.
 
-Errors are used in a quite different way from exceptions. They don’t get thrown, and they don’t cause the application to crash. Instead, they are created to hold information about a failure, and then bubbled up through calling methods where it may be ‘handled’ in some way such as displaying a message to the user. Failures that result in errors being created can be considered common or even expected issues. A lot of the built-in cocoa errors are related to file system issues – such as files not being found, or running out of memory while writing.
+Errors are used in a quite different way from exceptions. They don’t get thrown, and they don’t cause the application to crash. Instead, they are created to hold information about failure, and then bubbled up through calling methods where it may be ‘handled’ in some way such as displaying a message to the user. Failures that result in errors being created can be considered common or even expected issues. A lot of the built-in cocoa errors are related to file system issues – such as files not being found, or running out of memory while writing.
 
