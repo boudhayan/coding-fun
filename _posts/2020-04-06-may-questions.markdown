@@ -5,7 +5,8 @@ date:   2020-05-10 12:32:45 +0100
 categories:
 ---
 
-#1.What are the differences between forEach and for loop in swift? advantages of forEach over for loop.
+# 1.What are the differences between forEach and for loop in swift? advantages of forEach over for loop.
+
 
 forEach can be more useful if the action you want to perform is a single function call on each element in a collection. Passing a function name to forEach instead of passing closure expression can lead to clearer and more concise code. For example, if you are writing a view controller and want to add an array of subviews to `self.view`, you can just use `views.forEach(view.addSubview)` as function type `(UIView) -> Void` is same as the `closure` type. 
 

@@ -16,3 +16,6 @@ footer: 'follow me on <a href="https://medium.com/@iboudhayan">medium</a>'
 # Build settings
 markdown: kramdown
 remote_theme: b2a3e8/jekyll-theme-console
+
+google_analytics: UA-166030839-1
+
