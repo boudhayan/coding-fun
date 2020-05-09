@@ -163,3 +163,12 @@ You can see subscript calls `_checkSubscript` method to make sure the index is i
     _precondition(index >= startIndex, "Negative Array index is out of range")
   }
 {% endhighlight %}
+
+# 4. What are the differences between error and exception?
+
+
+Exceptions cause applications to crash if you do not handle it properly. It generally occurs when you try to perform an operation on an object incorrectly, such as trying to access an out of bounds index from an array. 
+Unhandled exceptions in your live apps must be avoided at all cost. Customers will not be happy if your app crashes and business can suffer from it. They are warnings to developers that a serious coding issue has occured and needs to be fixed. They are expected to occur in development phase of your app and provide information that will help you to solve the issue before you ship the app.
+
+Errors are used in a quite different way from exceptions. They don’t get thrown, and they don’t cause the application to crash. Instead, they are created to hold information about a failure, and then bubbled up through calling methods where it may be ‘handled’ in some way such as displaying a message to the user. Failures that result in errors being created can be considered common or even expected issues. A lot of the built-in cocoa errors are related to file system issues – such as files not being found, or running out of memory while writing.
+
